@@ -69,31 +69,37 @@ class MainActivity : AppCompatActivity() {
                     if (!prefix.isEmpty()) {
                         one = prefix + one
                     }
-                    tvinput.text = (one.toDouble() - two.toDouble()).toString()
+                    tvinput.text = removeLastZero((one.toDouble() - two.toDouble()).toString())
                 }
 
                 else if(tvValue.contains("+")){
                     var splitValue = tvValue.split("+")
                     var one = splitValue[0]
                     var two = splitValue[1]
-                    tvinput.text = (one.toDouble() + two.toDouble()).toString()
+                    tvinput.text = removeLastZero((one.toDouble() + two.toDouble()).toString())
                 }
                 else if(tvValue.contains("*")){
                     var splitValue = tvValue.split("*")
                     var one = splitValue[0]
                     var two = splitValue[1]
-                    tvinput.text = (one.toDouble() * two.toDouble()).toString()
+                    tvinput.text = removeLastZero((one.toDouble() * two.toDouble()).toString())
                 }
                 else if(tvValue.contains("/")){
                     var splitValue = tvValue.split("/")
                     var one = splitValue[0]
                     var two = splitValue[1]
-                    tvinput.text = (one.toDouble() / two.toDouble()).toString()
+                    tvinput.text = removeLastZero((one.toDouble() / two.toDouble()).toString())
                 }
             }
             catch(e:ArithmeticException){
                     e.printStackTrace()
             }
         }
+    }
+    private fun removeLastZero(value : String) : String{
+        if(value.contains(".0")){
+         return value.substring(0,value.length-2)
+        }
+       return value 
     }
 }
