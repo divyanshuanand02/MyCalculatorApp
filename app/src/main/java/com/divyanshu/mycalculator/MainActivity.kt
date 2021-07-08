@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     fun onClr(view: View){
         tvinput.text = ""
         lastNumeric = false
-        lastDecimal = true
+        lastDecimal = false
     }
 
     fun lastDecimalPoint(view: View){
